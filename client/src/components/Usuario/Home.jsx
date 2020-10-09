@@ -4,7 +4,6 @@ import Image from 'react-bootstrap/Image';
 import './css/home.css';
 
 
-
 export default function Home() {
 
   const loguear = function (e) {

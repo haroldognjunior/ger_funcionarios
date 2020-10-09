@@ -24,7 +24,7 @@ export function addEmployee(input,idUser) {
             })
             .then((value) => {
               dispatch({ type: ADD_EMPLOYEE }) &&
-                window.location.replace("http://localhost:3000/clientes");
+                window.location.replace("http://localhost:3000/funcionarios");
             });
         }
       })
@@ -85,7 +85,7 @@ export function deleteEmployee(firstName, id) {
               .then((response) => {
                 return dispatch({
                   type: GET_EMPLOYEES &&
-                  window.location.replace("http://localhost:3000/clientes")
+                  window.location.replace("http://localhost:3000/funcionarios")
                 })
               })
               .catch(res => {
@@ -122,7 +122,7 @@ export function deleteEmployee(firstName, id) {
                       icon: "success",
                     })
                     .then((value) => {
-                      window.location.replace("http://localhost:3000/clientes");
+                      window.location.replace("http://localhost:3000/funcionarios");
                     });
                 }
               })

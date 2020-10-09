@@ -1,0 +1,41 @@
+.funcionarios{
+    color: white;
+}
+
+#header {
+    margin-top: 20px;
+    width: 250px;
+}
+
+#contehome1 .logout {
+    
+    position: absolute !important;
+    margin-top: -200px;
+}
+
+#spanlogout{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -35px;
+
+}
+
+.botaocadastrar{
+    margin-top: -20px;
+}
+
+#Funcionarios{
+    margin-top: 50px;
+}
+
+#elimbtn{
+    background-color:#AB0E0E;
+}
+
+#editar{
+    background-color: #0C0851;
+}
+
+.botoesfinal {
+    margin-top: 20px;
+}

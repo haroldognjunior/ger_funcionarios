@@ -14,3 +14,6 @@ O Front-end foi feito em React Redux, para executá-lo:
 1) Executar na pasta client o comando npm install
 2) Depois executar o comando npm start dentro da mesma pasta
 3) O front está configurado para abrir através do endpoint http://localhost:3000/
+4) A interface tem validações para auxiliar o campo visual do usuário.
+
+Obrigado por ver este projeto =)

@@ -91,7 +91,7 @@ export function getProfile() {
       if (user) {
         swal.fire("Sucesso", 'Bem-vindo ' + user.firstName, 'success');
         setUsuario({
-          redirectTo: '/clientes'
+          redirectTo: '/funcionarios'
         })
       }
       else{

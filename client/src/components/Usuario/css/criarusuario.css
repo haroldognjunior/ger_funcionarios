@@ -1,9 +1,15 @@
 #header {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 h4{
     margin-bottom: 50px;
+}
+
+span {
+    color: brown;
+    justify-content: center;
+    margin-left: 0%;
 }
 
 #usuario .botoes1{
@@ -11,9 +17,10 @@ h4{
     flex-direction: column;
     align-self: center;
     align-items: center;
-    align-content: center;margin-top: 50px;
+    align-content: center;margin-top: 10px;
     color: white;
     font-size: 24px;
+    margin-left: 20%;
 }
 
 #usuario input{
@@ -22,4 +29,17 @@ h4{
 
 #usuario button{
     margin-top: 10px;
+}
+
+#usuario{
+    margin-left: 10%;
+}
+
+h4{
+    margin-left: 20%;
+    align-content: center;
+}
+
+.Form{
+    width: 100% !important;
 }

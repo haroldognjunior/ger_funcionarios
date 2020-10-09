@@ -4,14 +4,13 @@ import { getProfile} from '../../actions/userActions';
 import Container from "react-bootstrap/esm/Container";
 import Image from "react-bootstrap/Image";
 import { connect } from 'react-redux';
+import './css/cadastrar.css'
 
 
 function CadastrarFuncionario ({ id, addEmployee, usuarioConectado, getProfile}) {
-    useEffect(()=>{
-        
+    useEffect(()=>{        
         getProfile(id)     
-     },[])
-    
+     },[getProfile, id])   
         
      
   const [input, setInput] = useState({
@@ -23,22 +22,19 @@ function CadastrarFuncionario ({ id, addEmployee, usuarioConectado, getProfile})
     description: null
 })
 
-const handleInputChange = function(e){
+  const handleInputChange = function(e){
     e.preventDefault()        
     setInput({
         ...input,
         [e.target.name]: e.target.value            
-    })
-   
-}
-  
+    })   
+}  
   const handleSubmit = function(e){
     e.preventDefault();     
     addEmployee(input, usuarioConectado.idUser) ;     
 }
-
   const cancelar = function (e) {
-    window.location.replace("http://localhost:3000");
+    window.location.replace("http://localhost:3000/funcionarios");
   };
 
 
@@ -47,7 +43,7 @@ const handleInputChange = function(e){
     <Container id="cadastrarfuncionario">
       <Image
         id="header"
-        src="https://fotos.subefotos.com/97d96c5903bb437b451cff5d3f864f20o.png"
+        src="http://3lminformatica.com.br/site/wp-content/themes/3lm-theme/assets/images/3lmlogo.png"
       ></Image>
       <div id="criarfuncionario">
        
@@ -72,8 +68,7 @@ const handleInputChange = function(e){
                   type="text"
                   onChange={handleInputChange}
                   required
-                />
-                
+                />                
               </div>
               <div className="Form-Group">
                 <input
@@ -93,8 +88,7 @@ const handleInputChange = function(e){
                   type="date"
                   onChange={handleInputChange}
                   required
-                />
-                
+                />                
               </div>
               <div className="Form-Group">
                 <input
@@ -132,22 +126,17 @@ const handleInputChange = function(e){
                   Cancelar
                 </button>
               </div>
-            </div>
-
-         
-          </div>
-        
+            </div>         
+          </div>        
       </div>      
     </Container>
   );
 };
 
-
 function mapStateToProps(state){
     return{
-        usuarioConectado : state.usuario.usuarioConectado,
-        
+        usuarioConectado : state.usuario.usuarioConectado        
     }
   }
   
-  export default connect (mapStateToProps,{addEmployee, getProfile})( CadastrarFuncionario )
+export default connect (mapStateToProps,{addEmployee, getProfile})( CadastrarFuncionario )

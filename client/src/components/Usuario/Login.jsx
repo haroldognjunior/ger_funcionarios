@@ -45,7 +45,7 @@ export default function LoginForm() {
     return (
       <Container id="login">
         <Image
-          id="login"
+          id="login3lm"
           src="http://3lminformatica.com.br/site/wp-content/themes/3lm-theme/assets/images/3lmlogo.png"
         ></Image>
         <form id="formlogin">

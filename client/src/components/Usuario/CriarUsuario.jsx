@@ -22,7 +22,7 @@ const validations = yup.object().shape({
     .required("Deve digitar uma senha!"),
 });
 
-const Form = ({ handleSubmit, initialValues }) => {
+const Form = ({ initialValues }) => {
   const dispatch = useDispatch();
   function handleSubmit(values) {
     dispatch(addUser(values));
@@ -44,7 +44,7 @@ const Form = ({ handleSubmit, initialValues }) => {
           validationSchema={validations}
         >
           <FormikForm className="Form">
-            <div className="form-group col-md-12">
+           
               <h4>Criar Usuário</h4>
               <div className="Form-Group">
                 <Field
@@ -100,7 +100,7 @@ const Form = ({ handleSubmit, initialValues }) => {
                   Cancelar
                 </button>
               </div>
-            </div>
+            
 
          
           </FormikForm>

@@ -7,8 +7,8 @@ import Image from 'react-bootstrap/Image';
 import Container from "react-bootstrap/Container";
 import BotonLogout from "../Usuario/BotonLogout";
 import Button from "react-bootstrap/Button";
-/* import './css/funcionarios.css';
- */
+import './css/funcionarios.css';
+ 
 
 function Funcionarios({Employees, getEmployees, getProfile}) {
     useEffect(()=>{
@@ -17,7 +17,7 @@ function Funcionarios({Employees, getEmployees, getProfile}) {
 
   useEffect(()=>{
     getProfile()
-},[getEmployees])
+},[getProfile])
   
 const logout_user = () => {
     logout();
@@ -25,26 +25,29 @@ const logout_user = () => {
   const dispatch = useDispatch();
   const deleteHandler = (firstName, id) => {
     dispatch(deleteEmployee(firstName, id));
-  };  
+  }; 
 
-  
   return(
       
       <Container id="contehome1">
       <Image
         id="header"
-        src="https://fotos.subefotos.com/97d96c5903bb437b451cff5d3f864f20o.png"
+        src="http://3lminformatica.com.br/site/wp-content/themes/3lm-theme/assets/images/3lmlogo.png"
       ></Image>
-     <div>
+     
+     <div className="logout">
      
      <BotonLogout
-                      id="blogout"
-                      title="Log Out"
-                      onClick={(e) => {
-                        logout_user();
+        id="blogout"
+        title="Log Out"
+        onClick={(e) => {
+          logout_user();
                       }}
-                    />
-     <Link to={'/registrocliente/'}>
+      />
+      <span id="spanlogout">Logout</span>
+      </div>
+      <div className="botaocadastrar">
+     <Link to={'/registrofuncionario/'}>
                   <input
                   type="submit"
                   className="btn btn-outline-dark"
@@ -55,7 +58,7 @@ const logout_user = () => {
       {Employees.map(C => {
           return <div id="Funcionarios" key={C.idEmployee}>
            <h1>Dados do Funcionário {C.firstName} {C.lastName}</h1> 
-           <span>Nome: {C.firstName} 
+           <span className="funcionarios">Nome: {C.firstName} 
            <br />Sobrenome: {C.lastName}
            <br />Cargo: {C.position}
            <br />Data de Nascimento: {C.birthDate}
@@ -64,46 +67,37 @@ const logout_user = () => {
            <br />Funcionário cadastrado no sistema pelo usuário de ID {C.userIdUser}
            </span>
            <br />
+           <div className="botoesfinal">
            <Link to={'/editar/'+ C.idEmployee}>
            <input
+                  id="editar"
                   type="submit"
                   className="btn btn-outline-dark"
                   value="Editar Funcionário "
-                  />
-         
-            </Link>
-            
-
+                  />         
+            </Link> 
             <Button
               id="elimbtn"
               className="btn btn-dark"
               variant="top"
-              size="lg"
-              
+              size="lg"              
               onClick={() =>
                 deleteHandler(C.firstName, C.idEmployee)
               }
             >
-              Eliminar Funcionário
-            </Button>
-           
+              Deletar Funcionário
+            </Button> 
+            </div>          
       </div>})}
-      
-
-
-
-
       </Container>
-
   );
-
 }
 
 function mapStateToProps(state){
     return{
-        Employees : state.usuario.funcionarios
+      Employees : state.usuario.funcionarios
     }
   }
-  
-  export default connect (mapStateToProps,{getProfile, getEmployees})( Funcionarios )
+
+export default connect (mapStateToProps,{getProfile, getEmployees})( Funcionarios )
   
